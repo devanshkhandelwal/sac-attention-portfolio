@@ -1,4 +1,4 @@
-# 🚀 Attention-Based SAC Portfolio Allocator
+# Attention-Based SAC Portfolio Allocator
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.9+-red.svg)](https://pytorch.org/)
@@ -7,31 +7,26 @@
 
 > **State-of-the-art portfolio allocation using Soft Actor-Critic with multi-head attention and market regime detection**
 
-## 🌟 Key Features
+## Features
 
-### 🧠 **Multi-Head Attention Architecture**
-- **Interpretable AI**: Visualize which market features the agent focuses on
-- **Feature Grouping**: Attention over price, volume, technical, and momentum features
-- **Dynamic Weighting**: Adaptive attention patterns based on market conditions
+- **Multi-Head Attention**  
+  Highlights which features (price, volume, momentum, etc.) the agent focuses on.
 
-### 📊 **Market Regime Detection**
-- **4-Class Classification**: Bull, Bear, Volatile, and Sideways market regimes
-- **Real-time Detection**: Continuous regime monitoring with 20-day lookback
-- **Regime-Aware Policies**: Different allocation strategies for each market condition
+- **Market Regime Detection**  
+  Classifies Bull, Bear, Volatile, and Sideways conditions with a rolling lookback.
 
-### 🎯 **Advanced SAC Implementation**
-- **Continuous Actions**: Portfolio weights as continuous variables
-- **Entropy Regularization**: Automatic temperature tuning for exploration
-- **Twin Critics**: Reduced overestimation bias with dual Q-networks
-- **Regime-Specific Exploration**: Adaptive noise levels based on market conditions
+- **SAC Enhancements**  
+  - Continuous portfolio weights  
+  - Automatic entropy tuning  
+  - Dual critics to reduce overestimation  
+  - Regime-aware exploration strategies
 
-### 📈 **Superior Performance**
-- **6.6% Sharpe Improvement**: Outperforms equal-weight baseline
-- **30%+ vs SPY-only**: Consistent outperformance across market regimes
-- **Dynamic Allocation**: Non-static strategies with regime adaptation
-- **Risk Management**: Lower maximum drawdowns than single-asset strategies
+- **Performance**  
+  - +6.6% Sharpe vs equal-weight baseline  
+  - Lower max drawdowns than SPY-only allocation  
+  - Robust results across multiple walk-forward splits  
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ```mermaid
 graph TB
@@ -55,7 +50,7 @@ graph TB
 4. **AttentionSACAgent**: Enhanced SAC with attention and regime awareness
 5. **Visualization Tools**: Interactive attention and regime analysis
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -98,7 +93,7 @@ print(f"Market Regime: {interpretation['regime']}")
 print(f"Attention Focus: {interpretation['attention_analysis']['most_attended_feature']}")
 ```
 
-## 📊 Performance Results
+## Performance Results
 
 ### Walk-Forward Analysis (WF1: 2020-2025)
 
@@ -110,13 +105,13 @@ print(f"Attention Focus: {interpretation['attention_analysis']['most_attended_fe
 | 60/40 | 0.237 | 0.713 | -0.315 | 0.273 |
 
 ### Key Achievements
-- ✅ **6.6% improvement** in validation Sharpe over equal-weight
-- ✅ **1.8% improvement** in test Sharpe over equal-weight  
-- ✅ **Better risk management** with lower maximum drawdowns
-- ✅ **Dynamic behavior** with non-equal weight allocations
-- ✅ **Robust performance** across multiple walk-forward periods
+- **6.6% improvement** in validation Sharpe over equal-weight
+- **1.8% improvement** in test Sharpe over equal-weight  
+- **Better risk management** with lower maximum drawdowns
+- **Dynamic behavior** with non-equal weight allocations
+- **Robust performance** across multiple walk-forward periods
 
-## 🎨 Attention Visualization
+## Attention Visualization
 
 ### Interactive Attention Heatmaps
 ```python
@@ -139,7 +134,7 @@ fig = visualizer.create_attention_dashboard(agent_outputs)
 fig.show()  # Comprehensive portfolio analysis
 ```
 
-## 🔬 Technical Innovation
+## The Technical Side
 
 ### Multi-Head Attention Mechanism
 ```python
@@ -205,7 +200,7 @@ attention_sac_portfolio/
     └── test_*.py                  # Unit tests
 ```
 
-## 🧪 Demo & Examples
+## Demo & Examples
 
 ### Run the Complete Demo
 ```bash
@@ -213,11 +208,11 @@ python examples/demo_attention_system.py
 ```
 
 This demo showcases:
-- 🎯 Multi-head attention for market feature analysis
-- 🔍 Real-time market regime detection
-- 💰 Regime-aware reward functions
-- 🤖 Attention-based SAC agent training
-- 📊 Interactive attention visualizations
+- Multi-head attention for market feature analysis
+- Real-time market regime detection
+- Regime-aware reward functions
+- Attention-based SAC agent training
+- Interactive attention visualizations
 
 ### Custom Configuration
 ```yaml
@@ -256,7 +251,7 @@ regime_rewards:
 - **Dynamic exploration** based on market conditions
 - **Interactive visualizations** for model interpretability
 
-## 📈 Performance Analysis
+## Performance Analysis
 
 ### Regime-Specific Performance
 ```python
@@ -281,7 +276,7 @@ volatile_markets: ['Technical Features', 'Momentum Features']
 sideways_markets: ['Price Features', 'Volume Features']
 ```
 
-## 🛠️ Development
+## Development
 
 ### Running Tests
 ```bash
@@ -302,14 +297,14 @@ mypy src/
 4. Ensure all tests pass
 5. Submit a pull request
 
-## 📚 Documentation
+## Documentation
 
 - [API Reference](docs/api.md)
 - [Configuration Guide](docs/configuration.md)
 - [Visualization Tutorial](docs/visualization.md)
 - [Performance Analysis](docs/performance.md)
 
-## 🤝 Citation
+## Citation
 
 If you use this work in your research, please cite:
 
@@ -322,11 +317,11 @@ If you use this work in your research, please cite:
 }
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **PyTorch** for the deep learning framework
 - **Gymnasium** for the environment interface
@@ -334,7 +329,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Transformers** architecture for attention mechanisms
 - **SAC algorithm** by Haarnoja et al.
 
-## 🔮 Future Work
+## Future Work
 
 - [ ] **Multi-asset attention** for cross-asset relationships
 - [ ] **Temporal attention** for time-series patterns
@@ -347,7 +342,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**🌟 Star this repository if you find it useful!**
+**Star this repository if you find it useful!**
 
 [Report Bug](https://github.com/yourusername/attention-sac-portfolio/issues) · [Request Feature](https://github.com/yourusername/attention-sac-portfolio/issues) · [Documentation](docs/)
 
