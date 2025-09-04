@@ -272,20 +272,6 @@ flake8 src/ examples/
 mypy src/
 ```
 
-### Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all tests pass
-5. Submit a pull request
-
-## Documentation
-
-- [API Reference](docs/api.md)
-- [Configuration Guide](docs/configuration.md)
-- [Visualization Tutorial](docs/visualization.md)
-- [Performance Analysis](docs/performance.md)
-
 ## Future Work
 
 - [ ] **Multi-asset attention** for cross-asset relationships
