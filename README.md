@@ -5,8 +5,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-> **State-of-the-art portfolio allocation using Soft Actor-Critic with multi-head attention and market regime detection**
-
 ## Features
 
 - **Multi-Head Attention**  
