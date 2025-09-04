@@ -233,22 +233,6 @@ regime_rewards:
     sideways: 1.0
 ```
 
-## 🔬 Research & Innovation
-
-### Novel Contributions
-1. **First application** of multi-head attention to portfolio allocation
-2. **Regime-aware SAC** with adaptive exploration strategies
-3. **Interpretable AI** for financial decision-making
-4. **Real-time regime detection** with attention-based features
-5. **Comprehensive visualization** of attention patterns and regime transitions
-
-### Technical Achievements
-- **Attention regularization** to prevent over-focusing
-- **Regime consistency loss** for stable regime predictions
-- **Feature group attention** for interpretable market analysis
-- **Dynamic exploration** based on market conditions
-- **Interactive visualizations** for model interpretability
-
 ## Performance Analysis
 
 ### Regime-Specific Performance
