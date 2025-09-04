@@ -286,31 +286,6 @@ mypy src/
 - [Visualization Tutorial](docs/visualization.md)
 - [Performance Analysis](docs/performance.md)
 
-## Citation
-
-If you use this work in your research, please cite:
-
-```bibtex
-@software{attention_sac_portfolio,
-  title={Attention-Based SAC Portfolio Allocator},
-  author={Your Name},
-  year={2024},
-  url={https://github.com/yourusername/attention-sac-portfolio}
-}
-```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- **PyTorch** for the deep learning framework
-- **Gymnasium** for the environment interface
-- **Plotly** for interactive visualizations
-- **Transformers** architecture for attention mechanisms
-- **SAC algorithm** by Haarnoja et al.
-
 ## Future Work
 
 - [ ] **Multi-asset attention** for cross-asset relationships
