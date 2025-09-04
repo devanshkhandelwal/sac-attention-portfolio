@@ -1,0 +1,154 @@
+# Attention-Based SAC Portfolio Allocator Configuration
+# Advanced configuration for the attention-based SAC system with regime detection
+
+# Environment Configuration
+env:
+  # Asset universe
+  assets: ['SPY', 'TLT', 'GLD', 'DBC', 'USO']
+  n_assets: 5
+  
+  # Data configuration
+  data_file: 'assets/data/features_final_clean.csv'
+  lookback_window: 20
+  
+  # Reward shaping parameters
+  diversity_weight: 0.01          # Encourage portfolio diversification
+  action_change_weight: 0.005     # Encourage active rebalancing
+  momentum_weight: 0.0002         # Reward momentum signals
+  risk_penalty_weight: 0.0001     # Penalize portfolio volatility
+  
+  # Regime detection parameters
+  regime_lookback: 20
+  volatility_threshold: 0.02      # 2% daily volatility threshold
+  trend_threshold: 0.05           # 5% trend strength threshold
+  momentum_threshold: 0.1         # 10% momentum threshold
+
+# SAC Agent Configuration
+sac:
+  # Network architecture
+  obs_dim: 50                     # Observation dimension
+  actor_hidden: [256, 256]        # Actor network hidden layers
+  critic_hidden: [256, 256]       # Critic network hidden layers
+  
+  # Attention configuration
+  attention_heads: 8              # Number of attention heads
+  attention_layers: 2             # Number of attention layers
+  attention_dropout: 0.1          # Attention dropout rate
+  
+  # Training parameters
+  lr: 0.0003                      # Learning rate
+  gamma: 0.99                     # Discount factor
+  tau: 0.005                      # Soft update rate
+  batch_size: 256                 # Batch size
+  buffer_size: 1000000            # Replay buffer size
+  
+  # Exploration and entropy
+  exploration_noise: 0.2          # Exploration noise level
+  target_entropy: null            # Auto-calculated as -log(n_assets)
+  temperature_init: 1.0           # Initial temperature
+  
+  # Regime-specific exploration
+  regime_exploration:
+    bull: 0.15                    # Exploration in bull markets
+    bear: 0.25                    # Exploration in bear markets
+    volatile: 0.3                 # Exploration in volatile markets
+    sideways: 0.1                 # Exploration in sideways markets
+
+# Regime-Aware Reward Configuration
+regime_rewards:
+  # Base reward weighting
+  base_reward_weight: 1.0
+  
+  # Regime-specific weights
+  regime_weights:
+    bull: 1.2                     # Favor momentum in bull markets
+    bear: 0.8                     # Reduce risk in bear markets
+    volatile: 0.6                 # Strongly favor diversification
+    sideways: 1.0                 # Neutral weighting
+  
+  # Reward components
+  momentum_weight: 0.001          # Momentum signal weight
+  volatility_penalty: 0.0005      # Volatility penalty weight
+  diversification_weight: 0.01    # Diversification bonus weight
+  action_change_weight: 0.005     # Action change bonus weight
+
+# Training Configuration
+training:
+  # Walk-forward parameters
+  train_years: 5                  # Training period length
+  val_years: 3                    # Validation period length
+  test_years: 2.5                 # Test period length
+  
+  # Training parameters
+  episodes: 20                    # Number of training episodes
+  start_steps: 1000               # Random exploration steps
+  update_frequency: 1             # Update frequency
+  eval_frequency: 5               # Evaluation frequency
+  
+  # Early stopping
+  early_stopping: true
+  patience: 5                     # Episodes to wait for improvement
+  min_delta: 0.001                # Minimum improvement threshold
+  
+  # Checkpointing
+  save_frequency: 5               # Save checkpoint every N episodes
+  keep_best: true                 # Keep only best checkpoint
+
+# Evaluation Configuration
+evaluation:
+  # Metrics to compute
+  metrics:
+    - sharpe_ratio
+    - max_drawdown
+    - total_return
+    - volatility
+    - win_rate
+    - turnover
+  
+  # Baseline strategies
+  baselines:
+    - equal_weight
+    - spy_only
+    - sixty_forty
+  
+  # Regime analysis
+  regime_analysis: true           # Enable regime-specific analysis
+  attention_analysis: true        # Enable attention analysis
+
+# Visualization Configuration
+visualization:
+  # Attention visualization
+  attention_heatmap: true         # Generate attention heatmaps
+  attention_evolution: true       # Plot attention evolution
+  regime_transitions: true        # Plot regime transitions
+  
+  # Portfolio visualization
+  portfolio_weights: true         # Plot portfolio weights
+  performance_comparison: true    # Compare with baselines
+  regime_performance: true        # Analyze regime performance
+  
+  # Output settings
+  save_plots: true               # Save plots to files
+  plot_format: 'html'            # Plot format (html, png, pdf)
+  interactive: true               # Enable interactive plots
+
+# Logging Configuration
+logging:
+  level: INFO                     # Logging level
+  log_dir: 'logs'                # Log directory
+  tensorboard: true              # Enable TensorBoard logging
+  wandb: false                   # Enable Weights & Biases logging
+  
+  # Logging frequency
+  log_frequency: 10              # Log every N episodes
+  save_frequency: 5              # Save logs every N episodes
+
+# Hardware Configuration
+hardware:
+  device: 'auto'                 # Device selection (auto, cpu, cuda)
+  num_workers: 4                 # Number of data loading workers
+  pin_memory: true               # Pin memory for faster GPU transfer
+  
+# Reproducibility
+seed: 42                         # Random seed for reproducibility
+deterministic: true              # Use deterministic algorithms
